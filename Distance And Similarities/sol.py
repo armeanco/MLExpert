@@ -50,7 +50,7 @@ class Metrics():
                find_Y[Y[x]] += 1
        for x in range(0, len(find_X)):
            if find_X[x] >= 1 and find_Y[x] >= 1:
-               plus += find_X[x]
+               plus += find_X[x] if find_X[x] >= find_Y[x] else find_Y[x]
                union += 1
        jaccard = union/(len(X)+len(Y)-plus)
        return jaccard if union > 1 else union
